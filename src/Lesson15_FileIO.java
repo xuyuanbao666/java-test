@@ -184,13 +184,13 @@ class SerializationUtil {
 }
 
 // 5. 可序列化的用户类
-class User implements Serializable {
+class L15_User implements Serializable {
     private static final long serialVersionUID = 1L;
     private String name;
     private int age;
     private transient String password;  // transient字段不序列化
 
-    public User(String name, int age, String password) {
+    public L15_User(String name, int age, String password) {
         this.name = name;
         this.age = age;
         this.password = password;
@@ -198,7 +198,7 @@ class User implements Serializable {
 
     @Override
     public String toString() {
-        return "User{name='" + name + "', age=" + age + ", password='" + password + "'}";
+        return "L15_User{name='" + name + "', age=" + age + ", password='" + password + "'}";
     }
 }
 
@@ -302,13 +302,13 @@ public class Lesson15_FileIO {
         // 9. 对象序列化
         System.out.println("\n----- 9. 对象序列化 -----");
         try {
-            User user = new User("张三", 25, "password123");
+            L15_User user = new L15_User("张三", 25, "password123");
             System.out.println("原对象: " + user);
             
             SerializationUtil.serialize(user, objectFile);
             System.out.println("序列化成功");
             
-            User deserialized = (User) SerializationUtil.deserialize(objectFile);
+            L15_User deserialized = (L15_User) SerializationUtil.deserialize(objectFile);
             System.out.println("反序列化对象: " + deserialized);
             System.out.println("注意: password字段为null（transient）");
         } catch (IOException | ClassNotFoundException e) {
