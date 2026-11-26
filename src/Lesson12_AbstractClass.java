@@ -204,18 +204,18 @@ class L12_Football extends L12_Game {
 }
 
 // 4. 抽象类实现接口
-interface Drawable {
+interface L12_Drawable {
     void draw();
     default void erase() {
         System.out.println("擦除图形");
     }
 }
 
-interface Resizable {
+interface L12_Resizable {
     void resize(double factor);
 }
 
-abstract class AbstractShape implements Drawable, Resizable {
+abstract class AbstractShape implements L12_Drawable, L12_Resizable {
     protected String color;
     protected double x, y;
 
