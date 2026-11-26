@@ -21,8 +21,13 @@ public class App {
         System.out.println("请选择要运行的课程 (1-21)，或输入 0 退出：");
         System.out.print("> ");
         
-        // 模拟用户选择
-        int choice = 1;  // 默认选择课程1
+        // 读取真实用户选择，并处理非整数输入
+        if (!scanner.hasNextInt()) {
+            System.out.println("无效选择，请输入 0-21 之间的整数");
+            scanner.close();
+            return;
+        }
+        int choice = scanner.nextInt();
         
         switch (choice) {
             case 0:
